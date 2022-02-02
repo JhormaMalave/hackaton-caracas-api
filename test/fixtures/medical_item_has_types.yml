@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medical_item: one
+  medical_item_type: one
+
+two:
+  medical_item: two
+  medical_item_type: two
