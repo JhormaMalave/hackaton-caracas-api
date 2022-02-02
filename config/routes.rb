@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :users
       resources :auth, only: :create
       resources :medical_items
+      resources :medical_centers
     end
   end
 end
