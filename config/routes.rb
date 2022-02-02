@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :auth, only: :create
       resources :medical_items
       resources :medical_centers
+      resources :doctors
     end
   end
 end
