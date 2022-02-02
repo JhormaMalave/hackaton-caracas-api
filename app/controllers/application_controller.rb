@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
     private
         def authenticate_request
             header = request.headers["Authorization"]
-            
+
             if !header
                 render json: { error: 'Debes iniciar sesión' }, status: 401
             else 
