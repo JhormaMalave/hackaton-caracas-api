@@ -1,9 +1,8 @@
-json.array! @medical_centers do |medical_center|
-    json.id medical_center.id
-    json.name medical_center.name
-    json.description medical_center.description
-    json.direction medical_center.direction
-    json.type do 
-        json.name medical_center.medical_center_type.name
-    end
+json.array! @doctors do |doctor|
+    json.id doctor.id
+    json.name doctor.name
+    json.last_name doctor.last_name
+    json.contact_number doctor.contact_number
+    json.description doctor.description
+    json.email doctor.email
 end
