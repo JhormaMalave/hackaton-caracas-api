@@ -46,6 +46,6 @@ class Api::V1::MedicalCentersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def medical_center_params
-      params.permit(:name, :description, :direction)
+      params.permit(:name, :description, :direction, :medical_center_type_id)
     end
 end
