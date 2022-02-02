@@ -22,3 +22,16 @@ while MedicalCenter.all.count < 15
         medical_center_type: medical_center_type
     )
 end
+
+while Doctor.all.count < 20
+    Doctor.create!(
+        name: Faker::Name.name,
+        last_name: Faker::Name.last_name,
+        email: Faker::Internet.email,
+        description: Faker::Lorem.paragraphs,
+        contact_number: Faker::PhoneNumber.cell_phone_in_e164
+    )
+end
+
+
+# Faker::Company.profession
