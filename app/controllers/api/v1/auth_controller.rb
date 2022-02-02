@@ -1,5 +1,5 @@
 class Api::V1::AuthController < ApplicationController
-    skip_before_action :authenticate_request
+    # skip_before_action :authenticate_request
     
     def create
         @user = User.find_by_email(params[:email])
