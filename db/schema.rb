@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_181203) do
+ActiveRecord::Schema.define(version: 2022_02_02_182542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "medical_center_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "medical_centers", force: :cascade do |t|
     t.string "name"
@@ -21,6 +27,8 @@ ActiveRecord::Schema.define(version: 2022_02_02_181203) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "medical_center_type_id", default: 1, null: false
+    t.index ["medical_center_type_id"], name: "index_medical_centers_on_medical_center_type_id"
   end
 
   create_table "medical_item_has_types", force: :cascade do |t|
@@ -56,6 +64,7 @@ ActiveRecord::Schema.define(version: 2022_02_02_181203) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "medical_centers", "medical_center_types"
   add_foreign_key "medical_item_has_types", "medical_item_types"
   add_foreign_key "medical_item_has_types", "medical_items"
 end
