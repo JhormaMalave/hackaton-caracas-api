@@ -48,3 +48,6 @@ end
 
 # For authentication
 gem 'jwt'
+
+# For add data on database
+gem 'faker'
