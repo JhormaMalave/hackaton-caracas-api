@@ -18,7 +18,7 @@ class Api::V1::MedicalItemsController < ApplicationController
     @medical_item = MedicalItem.new(medical_item_params)
 
     if @medical_item.save
-      render json: @medical_item, status: :created, location: @medical_item
+      render json: @medical_item, status: :created
     else
       render json: @medical_item.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class Api::V1::MedicalItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def medical_item_params
-      params.require(:medical_item).permit(:name)
+      params.permit(:name, :description, :status, :direction, :price)
     end
 end
