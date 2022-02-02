@@ -1,16 +1,15 @@
+# frozen_string_literal: true
+
 class Api::V1::MedicalCentersController < ApplicationController
   before_action :set_medical_center, only: %i[ show update destroy ]
 
   # GET /medical_centers
   def index
     @medical_centers = MedicalCenter.all
-
-    render json: @medical_centers
   end
 
   # GET /medical_centers/1
   def show
-    render json: @medical_center
   end
 
   # POST /medical_centers
