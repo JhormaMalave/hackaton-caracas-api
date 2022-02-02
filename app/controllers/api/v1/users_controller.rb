@@ -15,6 +15,7 @@ class Api::V1::UsersController < ApplicationController
             render json: { error: 'No se pudo crear el usuario.' }, status: :unprocessable_entity
         end 
     end
+    
 
     private
         def user_params
