@@ -5,7 +5,7 @@ class Api::V1::MedicalCentersController < ApplicationController
 
   # GET /medical_centers
   def index
-    @medical_centers = MedicalCenter.all
+    @medical_centers = params["name"] ? MedicalCenter.filter_by_name(params["name"]) : MedicalCenter.all
   end
 
   # GET /medical_centers/1

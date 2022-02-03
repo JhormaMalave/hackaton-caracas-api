@@ -3,7 +3,7 @@ class Api::V1::MedicalItemsController < ApplicationController
 
   # GET /medical_items
   def index
-    @medical_items = MedicalItem.all
+    @medical_items = params["name"] ?  MedicalItem.filter_by_name(params["name"]) : MedicalItem.all
 
     render json: @medical_items
   end

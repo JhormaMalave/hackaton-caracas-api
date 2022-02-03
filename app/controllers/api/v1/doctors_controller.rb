@@ -3,7 +3,7 @@ class Api::V1::DoctorsController < ApplicationController
 
     # GET /doctors
     def index
-      @doctors = Doctor.all
+      @doctors = params["name"] ?  Doctor.filter_by_name(params["name"]) : Doctor.all
     end
   
     # GET /doctors/1
