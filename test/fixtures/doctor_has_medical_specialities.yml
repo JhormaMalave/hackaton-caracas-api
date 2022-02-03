@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctor: one
+  medical_speciality: one
+
+two:
+  doctor: two
+  medical_speciality: two
