@@ -7,6 +7,7 @@ json.array! @doctors do |doctor|
     json.email doctor.email
 
     json.medical_specialities! doctor.medical_specialities do |medical_speciality|
+        json.id medical_speciality.id
         json.name medical_speciality.name
     end
 end
