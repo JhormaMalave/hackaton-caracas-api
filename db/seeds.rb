@@ -34,4 +34,14 @@ while Doctor.all.count < 20
 end
 
 
+medical_item_types = [
+    "Medicina",
+    "Insumos medicos",
+]
+
+medical_item_types.each do |item|
+    MedicalItemType.find_or_create_by(name: item)
+end
+
+
 # Faker::Company.profession
