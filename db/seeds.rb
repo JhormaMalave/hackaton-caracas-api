@@ -43,5 +43,14 @@ medical_item_types.each do |item|
     MedicalItemType.find_or_create_by(name: item)
 end
 
+while MedicalSpeciality.all.count < 7
+    MedicalSpeciality.create!(name: Faker::Company.profession)
+end
 
-# Faker::Company.profession
+
+Doctor.all.each do |item|
+    if !item.doctor_has_medical_specialities.any?
+        medical_speciality = MedicalSpeciality.all.sample
+        DoctorHasMedicalSpeciality.create!(doctor: item, medical_speciality: medical_speciality)
+    end
+end
