@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_221105) do
+ActiveRecord::Schema.define(version: 2022_02_03_010445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "doctor_has_medical_specialities", force: :cascade do |t|
+    t.bigint "doctor_id", null: false
+    t.bigint "medical_speciality_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_doctor_has_medical_specialities_on_doctor_id"
+    t.index ["medical_speciality_id"], name: "index_doctor_has_medical_specialities_on_medical_speciality_id"
+  end
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
@@ -66,6 +75,12 @@ ActiveRecord::Schema.define(version: 2022_02_02_221105) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "medical_specialities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "username"
@@ -74,6 +89,8 @@ ActiveRecord::Schema.define(version: 2022_02_02_221105) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "doctor_has_medical_specialities", "doctors"
+  add_foreign_key "doctor_has_medical_specialities", "medical_specialities"
   add_foreign_key "medical_centers", "medical_center_types"
   add_foreign_key "medical_item_has_types", "medical_item_types"
   add_foreign_key "medical_item_has_types", "medical_items"
